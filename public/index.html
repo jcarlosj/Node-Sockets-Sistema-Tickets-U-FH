@@ -34,6 +34,11 @@
             } 
         );
         
+        /** Escucha al Cliente & Recoge los datos Emitidos */
+        socket .on( 'userData', ( message ) => {     // 'userData' Nombre del evento esperado
+            console .log( 'Desde el Servidor', message );
+        });
+        
 
     </script>
 </body>
