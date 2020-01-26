@@ -8,5 +8,18 @@
 </head>
 <body>
     <h1>Fundamentos de Sockets</h1>
+
+    <!-- Cargamos la librería disponible para Sockets -->
+    <script src="./socket.io/socket.io.js"></script>
+    <!-- -->
+    <script>
+        var socket = io();      // Como la hemos definido en el BackEnd debemos invocarla en el FrontEnd. En nuestro caso 'io'
+
+        /** Escucho en el evento de conexión los sockets entrantes al Servidor */
+        socket .on( 'connect', function() {
+            console .log( 'Socket conectado al Servidor' );    // Registro en la consola la conexión del Socket al Servidor
+        });
+
+    </script>
 </body>
 </html>

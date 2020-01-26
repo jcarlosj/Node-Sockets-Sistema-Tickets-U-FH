@@ -16,6 +16,11 @@ const express = require( 'express' ),
 /** Middlewares */
 app .use( express .static( publicPath ) );
 
+/** Escucho en el evento de conexión del Cliente. */
+io .on( 'connection', () => {
+    console .log( 'Usuario conectado al Servidor' );    // Registro en la consola la conexión del Socket al Servidor
+});
+
 /** Lanza el Servidor */
 server .listen( port, ( error ) => {
     if ( error ) throw new Error( error ) ;
