@@ -20,6 +20,11 @@
             console .log( 'Socket conectado al Servidor' );    // Registro en la consola la conexión del Socket al Servidor
         });
 
+        /** Detecta la desconeción de los sockets entrantes al Servidor */
+        socket .on( 'disconnect', function() {
+            console .log( 'Se ha perdido la conexión con el Servidor' );
+        });
+
     </script>
 </body>
 </html>

@@ -17,8 +17,13 @@ const express = require( 'express' ),
 app .use( express .static( publicPath ) );
 
 /** Escucho en el evento de conexión del Cliente. */
-io .on( 'connection', () => {
+io .on( 'connection', ( client ) => {
     console .log( 'Usuario conectado al Servidor' );    // Registro en la consola la conexión del Socket al Servidor
+
+    /** Escucha evento de desconección del Cliente */
+    client .on( 'disconnect', () => {
+        console .log( 'Usuario desconectado!' );
+    });
 });
 
 /** Lanza el Servidor */
