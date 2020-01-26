@@ -35,8 +35,10 @@ io .on( 'connection', ( client ) => {
     /** Escucha al Cliente & Recoge los datos Emitidos
      *  - Esta comunicación es 1&1 (Pruebe con varias pestañas en su navegador)
      *  - El Cliente se comunica con el Servidor, pero su mensaje no es visto por otros */
-    client .on( 'userData', ( message ) => {     // 'userData' Nombre del evento esperado
+    client .on( 'userData', ( message, callback ) => {     // 'userData' Nombre del evento esperado
         console .log( message );
+
+        callback();     // Ejecuta el Callback del Evento que emite el mensaje en el FrontEnd
     });
 });
 

@@ -31,6 +31,9 @@
         socket .emit( 'userData', {             // 'userData' Nombre del evento que identifica el mensaje a Emitir
                 user: 'Luisa Bazalar',          // Datos Enviados a través del Socket (Generalmente en formato JSON)
                 email: 'luisaba@correo.co'
+            },
+            function() {    // CallBack
+                console .log( 'Se disparó el callback' );
             } 
         );
         
