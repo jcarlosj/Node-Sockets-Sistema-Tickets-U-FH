@@ -24,6 +24,13 @@ io .on( 'connection', ( client ) => {
     client .on( 'disconnect', () => {
         console .log( 'Usuario desconectado!' );
     });
+
+    /** Escucha al Cliente & Recoge los datos Emitidos
+     *  - Esta comunicación es 1&1 (Pruebe con varias pestañas en su navegador)
+     *  - El Cliente se comunica con el Servidor, pero su mensaje no es visto por otros */
+    client .on( 'userData', ( message ) => {     // 'userData' Nombre del evento esperado
+        console .log( message );
+    });
 });
 
 /** Lanza el Servidor */

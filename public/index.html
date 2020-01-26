@@ -25,6 +25,16 @@
             console .log( 'Se ha perdido la conexión con el Servidor' );
         });
 
+        /** Emite un mensaje al Servidor 
+         * De esta misma manera usando la consola del navegador puedo enviar datos al Servidor
+         * sin olvidar usar el mismo nombre del evento programado, en nuestro caso 'userData' */
+        socket .emit( 'userData', {             // 'userData' Nombre del evento que identifica el mensaje a Emitir
+                user: 'Luisa Bazalar',          // Datos Enviados a través del Socket (Generalmente en formato JSON)
+                email: 'luisaba@correo.co'
+            } 
+        );
+        
+
     </script>
 </body>
 </html>
