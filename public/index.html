@@ -32,8 +32,8 @@
                 user: 'Luisa Bazalar',          // Datos Enviados a través del Socket (Generalmente en formato JSON)
                 email: 'luisaba@correo.co'
             },
-            function() {    // CallBack
-                console .log( 'Se disparó el callback' );
+            function( response ) {    // CallBack
+                console .log( 'Responde el Servidor', response );
             } 
         );
         
@@ -42,7 +42,6 @@
             console .log( 'Desde el Servidor', message );
         });
         
-
     </script>
 </body>
 </html>

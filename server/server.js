@@ -37,8 +37,22 @@ io .on( 'connection', ( client ) => {
      *  - El Cliente se comunica con el Servidor, pero su mensaje no es visto por otros */
     client .on( 'userData', ( message, callback ) => {     // 'userData' Nombre del evento esperado
         console .log( message );
-
-        callback();     // Ejecuta el Callback del Evento que emite el mensaje en el FrontEnd
+        
+        if( message .user ) {
+            callback({      // Ejecuta el Callback del Evento que emite el mensaje en el FrontEnd
+                success: true,
+                message: 'Datos recibidos'
+            });     
+        }
+        else {
+            callback({      // Ejecuta el Callback del Evento que emite el mensaje en el FrontEnd
+                success: false,
+                error: {
+                    message: 'El nombre del usuario es obligatorio'
+                } 
+            });
+        }
+        
     });
 });
 
