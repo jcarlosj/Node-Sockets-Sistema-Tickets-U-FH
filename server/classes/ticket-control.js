@@ -37,6 +37,10 @@ class TicketControl {
         return `Ticket ${ this .last }`;
     }
 
+    getLast() {
+        return `Ticket ${ this .last }`;
+    }
+
     saveData() {
         let jsonData = {        // Data in JSON
                 today: this .today,

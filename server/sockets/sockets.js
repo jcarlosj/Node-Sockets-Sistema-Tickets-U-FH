@@ -6,6 +6,11 @@ const { io } = require( '../server' ),
 io .on( 'connection', ( client ) => {
     console .log( 'Usuario conectado al Servidor!' );    // Registro en la consola la conexión del Socket al Servidor
 
+    /** Emitir el ticket actual */
+    client .emit( 'currentStatus', {
+        currentTicketNumber: ticket .getLast()
+    });
+
     /** Escucha evento de desconección del Cliente */
     client .on( 'disconnect', () => {
         console .log( 'Usuario desconectado del Servidor!' );
