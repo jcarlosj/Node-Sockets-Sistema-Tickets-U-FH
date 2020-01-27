@@ -1,7 +1,7 @@
 {
-  "name": "socket-basico",
+  "name": "socket-sistema-tickets",
   "version": "0.0.1",
-  "description": "Fundamentos de Sockets",
+  "description": "Sistema de Tickets con Sockets usando Express",
   "main": "server.js",
   "scripts": {
     "start": "node ./server/server",
