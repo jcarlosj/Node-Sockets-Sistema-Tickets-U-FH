@@ -26,4 +26,22 @@ io .on( 'connection', ( client ) => {
         callback( numberTicket );
     });
 
+    /** Escucha al Cliente */
+    client .on( 'attendTicket', ( data, callback ) => {
+        /** Valida si el escritorio existe */
+        if( ! data .desktop ) {
+            return callback({
+                success: false,
+                error: {
+                    message: 'El escritorio es necesario'
+                }
+            });
+        }
+
+        let attendTicket = ticket .attend( data .desktop );
+        console .log( 'Atender Ticket', attendTicket .number );
+        callback( attendTicket );
+        /** TO DO: Actualizar y Notificar cambios en los ultimos 4 Tickets */
+    })
+
 });
