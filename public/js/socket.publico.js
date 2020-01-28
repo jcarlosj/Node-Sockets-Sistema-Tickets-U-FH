@@ -18,6 +18,7 @@ socket .on( 'currentStatus', ( data ) => {
     updateDOM( data .lastFourTickets );
 })
 
+
 let updateDOM = ( lastFourTickets ) => {
     for( i = 0; i <= lastFourTickets .length - 1; i++ ) {
         labelTickets[ i ] .text( `Ticket ${ lastFourTickets[ i ] .number }` );

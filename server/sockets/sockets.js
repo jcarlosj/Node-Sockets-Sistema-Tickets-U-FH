@@ -43,6 +43,11 @@ io .on( 'connection', ( client ) => {
         console .log( 'Atender Ticket', attendTicket .number );
         callback( attendTicket );
         /** TO DO: Actualizar y Notificar cambios en los ultimos 4 Tickets */
+        client .broadcast .emit( 'currentStatus', {
+            currentTicketNumber: ticket .getLast(),
+            lastFourTickets: ticket .getLastFourTickets()
+        });
+
     })
 
 });
