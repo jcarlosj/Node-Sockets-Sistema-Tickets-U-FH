@@ -14,14 +14,35 @@ var socket = io(),      // Como la hemos definido en el BackEnd debemos invocarl
 
 /** Escucha el estado actual del Ticket */
 socket .on( 'currentStatus', ( data ) => {
+    sound();    // TO DO: Reproducir sonido
     console .log( 'Servidor', data );
     updateDOM( data .lastFourTickets );
-})
+});
 
+let sound = () => {
+    var audio = new Audio( 'audio/new-ticket.mp3' );
+    
+    var playPromise = audio .play();
+
+    if ( playPromise !== undefined ) {
+        
+        playPromise .then(_ => {
+            console .log( 'Bim, bin!' );
+            // Automatic playback started!
+            // Show playing UI.
+            playPromise;   // Solo suena en (Chrome/Firefox). Sin embargo, no funciona todo el tiempo.
+        })
+        .catch( error => {
+            // Auto-play was prevented
+            // Show paused UI.
+        });
+
+    }
+}
 
 let updateDOM = ( lastFourTickets ) => {
     for( i = 0; i <= lastFourTickets .length - 1; i++ ) {
         labelTickets[ i ] .text( `Ticket ${ lastFourTickets[ i ] .number }` );
-        labelDesktops[ i ] .text( `Ticket ${ lastFourTickets[ i ] .desktop }` );
+        labelDesktops[ i ] .text( `Escritorio ${ lastFourTickets[ i ] .desktop }` );
     }
 }
