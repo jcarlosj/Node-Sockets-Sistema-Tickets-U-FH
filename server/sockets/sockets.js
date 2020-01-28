@@ -8,7 +8,8 @@ io .on( 'connection', ( client ) => {
 
     /** Emitir el ticket actual */
     client .emit( 'currentStatus', {
-        currentTicketNumber: ticket .getLast()
+        currentTicketNumber: ticket .getLast(),
+        lastFourTickets: ticket .getLastFourTickets()
     });
 
     /** Escucha evento de desconección del Cliente */

@@ -56,6 +56,10 @@ class TicketControl {
         return `Ticket ${ this .last }`;
     }
 
+    getLastFourTickets() {
+        return this .lastFourTickets;
+    }
+
     attend( desktop ) {
         /** Valida si hay Tickets pendientes */
         if( this .pendingTickets .length === 0 ) {
@@ -69,6 +73,8 @@ class TicketControl {
         this .pendingTickets .shift();                          // Elimina el primer elemento del Array
 
         let attendTicket = new Ticket( numberTicket, desktop ); // Crea Ticket y asigna escritorio que va a atenderlo
+        
+        attendTicket .success = true;   // Agrega nueva propiedad al ticket
         this .lastFourTickets .unshift( attendTicket );         // Agrega elemento al inicio del Array
 
         if( this .lastFourTickets .length > 4 ) {
@@ -78,7 +84,6 @@ class TicketControl {
         console .log( 'Ultimos 4 Tickets', this .lastFourTickets );
         this .saveData();
         
-        attendTicket .success = true;   // Agrega nueva propiedad al ticket
         return attendTicket;
     }
 
